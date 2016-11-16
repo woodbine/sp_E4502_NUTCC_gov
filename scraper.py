@@ -49,9 +49,6 @@ def validateURL(url):
             ext = os.path.splitext(sourceFilename)[1].replace('"', '').replace(';', '').replace(' ', '')
         else:
             ext = os.path.splitext(url)[1]
-        if not ext:
-            ext = '.'+r.headers.get('Content-Type').split('/')[-1]
-
         validURL = r.getcode() == 200
         validFiletype = ext.lower() in ['.csv', '.xls', '.xlsx']
         return validURL, validFiletype
